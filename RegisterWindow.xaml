@@ -1,0 +1,281 @@
+﻿<Window x:Class="WpfClientReef.RegisterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfClientReef"
+        xmlns:MaterialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+
+        mc:Ignorable="d"
+        Title="Register"
+        Height="500"
+        Width="400">
+    <Window.Resources>
+        <Style TargetType="StackPanel">
+            <Setter Property="Background"
+                    Value="DimGray" />
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="Background"
+                    Value="LightGray" />
+            <Setter Property="FontSize"
+                    Value="25" />
+            <Setter Property="Margin"
+                    Value="5,0,3,0" />
+            <Setter Property="Width" Value="200" />
+            <Setter Property="Height" Value="45" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+            <Setter Property="VerticalAlignment"
+                    Value="Center" />
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground"
+                    Value="Blue" />
+            <Setter Property="Background"
+                    Value="Black" />
+        </Style>
+        <Style TargetType="PasswordBox">
+            <Setter Property="Background"
+                    Value="LightGray" />
+            <Setter Property="FontSize"
+                    Value="25" />
+            <Setter Property="Margin"
+                    Value="5,0,3,0" />
+            <Setter Property="Width"
+                    Value="200" />
+            <Setter Property="Height"
+                    Value="45" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+            <Setter Property="VerticalAlignment"
+                    Value="Center" />
+        </Style>
+        <Style TargetType="DatePickerTextBox">
+            <Setter Property="Background"
+                    Value="LightGray" />
+            <Setter Property="FontSize"
+                    Value="25" />
+            <Setter Property="Margin"
+                    Value="5,0,3,0" />
+            <Setter Property="Width"
+                    Value="200" />
+            <Setter Property="Height"
+                    Value="45" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+            <Setter Property="VerticalAlignment"
+                    Value="Center" />
+            <Setter Property="Validation.ErrorTemplate">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <StackPanel Orientation="Horizontal"
+                                    VerticalAlignment="Center">
+                            <TextBlock FontSize="25"
+                                       Foreground="Red"
+                                       Text="!" />
+                            <AdornedElementPlaceholder x:Name="placeholder" />
+                            <TextBlock FontSize="15"
+                                       FontStyle="Italic"
+                                       Foreground="Red"
+                                       Text="{Binding ElementName=placeholder, 
+            Path=AdornedElement.(Validation.Errors)[0].ErrorContent}" />
+                        </StackPanel>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError"
+                         Value="true">
+                    <Setter Property="ToolTip"
+                            Value="{Binding RelativeSource={x:Static RelativeSource.Self},
+    Path=(Validation.Errors)[0].ErrorContent}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Background"
+                    Value="LightGray" />
+            <Setter Property="FontSize"
+                    Value="25" />
+            <Setter Property="Margin"
+                    Value="5,0,3,0" />
+            <Setter Property="Width"
+                    Value="200" />
+            <Setter Property="Height"
+                    Value="45" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+            <Setter Property="VerticalAlignment"
+                    Value="Center" />
+            <Setter Property="Validation.ErrorTemplate">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <StackPanel Orientation="Horizontal"
+                                    VerticalAlignment="Center">
+                            <TextBlock FontSize="25"
+                                       Foreground="Red"
+                                       Text="!" />
+                            <AdornedElementPlaceholder x:Name="placeholder" />
+                            <TextBlock FontSize="15"
+                                       FontStyle="Italic"
+                                       Foreground="Red"
+                                       Text="{Binding ElementName=placeholder, 
+                    Path=AdornedElement.(Validation.Errors)[0].ErrorContent}" />
+                        </StackPanel>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError"
+                         Value="true">
+                    <Setter Property="ToolTip"
+                            Value="{Binding RelativeSource={x:Static RelativeSource.Self},
+            Path=(Validation.Errors)[0].ErrorContent}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBlock FontSize="45"
+                   TextAlignment="Center"
+                   Text="Registration"
+                   Background="Black"
+                   FontWeight="Thin"
+                   FontFamily="Rockwell Extra Bold"
+                   TextDecorations="{x:Null}" />
+        <StackPanel Grid.Row="1"
+                    Orientation="Horizontal">
+            <TextBlock Text="FirstName: "
+                       FontSize="20"
+                       Width="110"
+                       TextAlignment="Center" />
+            <TextBox x:Name="tbFname">
+                <Binding Path="FirstName"
+                         UpdateSourceTrigger="PropertyChanged"
+                         ValidatesOnDataErrors="True">
+                    <Binding.ValidationRules>
+                        <local:ValidName Min="2"
+                                         Max="9" />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="2"
+                    Orientation="Horizontal">
+            <TextBlock Text="LastName: "
+                       FontSize="20"
+                       Width="110"
+                       TextAlignment="Center" />
+            <TextBox x:Name="tbLname">
+                <Binding Path="LastName"
+                         UpdateSourceTrigger="PropertyChanged"
+                         ValidatesOnDataErrors="True">
+                    <Binding.ValidationRules>
+                        <local:ValidName Max="16"
+                                         Min="2" />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="3"
+                    Orientation="Horizontal">
+            <TextBlock Text="Password: "
+                       FontSize="20"
+                       Width="110"
+                       TextAlignment="Center" />
+            <PasswordBox x:Name="pbPassword" PasswordChanged="pbPassword_PasswordChanged"></PasswordBox>
+        </StackPanel>
+        <StackPanel Grid.Row="4"
+                    Orientation="Horizontal">
+            <TextBlock Text="BirthYear: "
+                       FontSize="20"
+                       Width="110"
+                       TextAlignment="Center" />
+            <DatePickerTextBox x:Name="tbBirthYear">
+                <Binding Path="Birthday"
+                         UpdateSourceTrigger="PropertyChanged"
+                         ValidatesOnDataErrors="True">
+                    <Binding.ValidationRules>
+                        <local:ValidBirthYear />
+                    </Binding.ValidationRules>
+                </Binding>
+            </DatePickerTextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="5"
+                    Orientation="Horizontal">
+            <TextBlock Text="SurfingType: "
+                       FontSize="20"
+                       Width="110"
+                       TextAlignment="Center" />
+            <ComboBox x:Name="tbTypeSurf"
+                      SelectedItem="{Binding Surfslst}" />
+        </StackPanel>
+        <StackPanel Grid.Row="6"
+                    Orientation="Horizontal">
+            <TextBlock Text="PhoneNum: "
+                       FontSize="20"
+                       Width="110"
+                       TextAlignment="Center" />
+            <TextBox x:Name="tbPhonenum">
+                <Binding Path="Phonenum"
+                         UpdateSourceTrigger="PropertyChanged"
+                         ValidatesOnDataErrors="True">
+                    <Binding.ValidationRules>
+                        <local:ValidBirthYear />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="7"
+                    Orientation="Horizontal">
+            <TextBlock Text="Email: "
+                       FontSize="20"
+                       Width="110"
+                       TextAlignment="Center" />
+            <TextBox x:Name="tbEmail">
+                <Binding Path="Email"
+                         UpdateSourceTrigger="PropertyChanged"
+                         ValidatesOnDataErrors="True">
+                    <Binding.ValidationRules>
+                        <local:ValidBirthYear />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="8"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Background="Gray">
+            <Button x:Name="btnSignup"
+                    Content="Sign up"
+                    FontSize="20"
+                    Width="115"
+                    Click="btnSignup_Click"
+                    Margin="10" />
+            <Button x:Name="btnClear"
+                    Content="Clear"
+                    Width="115"
+                    FontSize="20"
+                    Margin="10"
+                    Click="btnClear_Click" />
+            <Button x:Name="btnLogin"
+                    Content="Login"
+                    Width="115"
+                    FontSize="20"
+                    Margin="10"
+                    Click="btnLogin_Click" />
+        </StackPanel>
+    </Grid>
+</Window>

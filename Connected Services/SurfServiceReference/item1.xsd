@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="User" nillable="true" type="tns:User" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUser" nillable="true" type="tns:ArrayOfUser" />
+  <xs:complexType name="User">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Birthday" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsAdmin" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Phonenum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Surfslst" nillable="true" type="tns:ArrayOfTypeSurf" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="User" nillable="true" type="tns:User" />
+  <xs:complexType name="BaseEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BaseEntity" nillable="true" type="tns:BaseEntity" />
+  <xs:complexType name="ArrayOfTypeSurf">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TypeSurf" nillable="true" type="tns:TypeSurf" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTypeSurf" nillable="true" type="tns:ArrayOfTypeSurf" />
+  <xs:complexType name="TypeSurf">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TypeSurf" nillable="true" type="tns:TypeSurf" />
+  <xs:complexType name="ArrayOfSurfClubs">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SurfClubs" nillable="true" type="tns:SurfClubs" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSurfClubs" nillable="true" type="tns:ArrayOfSurfClubs" />
+  <xs:complexType name="SurfClubs">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Location" nillable="true" type="tns:Locations" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SurfClubs" nillable="true" type="tns:SurfClubs" />
+  <xs:complexType name="Locations">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Cord" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WeatherLink" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Locations" nillable="true" type="tns:Locations" />
+  <xs:complexType name="ArrayOfLocations">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Locations" nillable="true" type="tns:Locations" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLocations" nillable="true" type="tns:ArrayOfLocations" />
+  <xs:complexType name="ArrayOfComments">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Comments" nillable="true" type="tns:Comments" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfComments" nillable="true" type="tns:ArrayOfComments" />
+  <xs:complexType name="Comments">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Cdatetime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Location" nillable="true" type="tns:Locations" />
+          <xs:element minOccurs="0" name="User" nillable="true" type="tns:User" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Comments" nillable="true" type="tns:Comments" />
+</xs:schema>

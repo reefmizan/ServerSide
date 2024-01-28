@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="ServiceSurf" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/ServiceModel/ServiceSurf/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/ServiceModel/ServiceSurf/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/ServiceModel/ServiceSurf/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Model" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServiceSurf_GetAllUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUser" />
+  </wsdl:message>
+  <wsdl:message name="IServiceSurf_GetAllUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceSurf_LogIn_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogIn" />
+  </wsdl:message>
+  <wsdl:message name="IServiceSurf_LogIn_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogInResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceSurf_InsertUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUser" />
+  </wsdl:message>
+  <wsdl:message name="IServiceSurf_InsertUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceSurf_UpdateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUser" />
+  </wsdl:message>
+  <wsdl:message name="IServiceSurf_UpdateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceSurf_DeleteUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUser" />
+  </wsdl:message>
+  <wsdl:message name="IServiceSurf_DeleteUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceSurf_GetAllTypeSurf_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTypeSurf" />
+  </wsdl:message>
+  <wsdl:message name="IServiceSurf_GetAllTypeSurf_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTypeSurfResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceSurf_InsertTypeSurf_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertTypeSurf" />
+  </wsdl:message>
+  <wsdl:message name="IServiceSurf_InsertTypeSurf_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertTypeSurfResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceSurf_UpdateTypeSurf_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTypeSurf" />
+  </wsdl:message>
+  <wsdl:message name="IServiceSurf_UpdateTypeSurf_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTypeSurfResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceSurf_DeleteTypeSurf_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTypeSurf" />
+  </wsdl:message>
+  <wsdl:message name="IServiceSurf_DeleteTypeSurf_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTypeSurfResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceSurf_GetAllSurfClubs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSurfClubs" />
+  </wsdl:message>
+  <wsdl:message name="IServiceSurf_GetAllSurfClubs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSurfClubsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceSurf_InsertSurfClubs_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertSurfClubs" />
+  </wsdl:message>
+  <wsdl:message name="IServiceSurf_InsertSurfClubs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertSurfClubsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceSurf_UpdateSurfClubs_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSurfClubs" />
+  </wsdl:message>
+  <wsdl:message name="IServiceSurf_UpdateSurfClubs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSurfClubsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceSurf_DeleteSurfClubs_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSurfClubs" />
+  </wsdl:message>
+  <wsdl:message name="IServiceSurf_DeleteSurfClubs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSurfClubsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceSurf_GetAllLocations_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllLocations" />
+  </wsdl:message>
+  <wsdl:message name="IServiceSurf_GetAllLocations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllLocationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceSurf_InsertLocations_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertLocations" />
+  </wsdl:message>
+  <wsdl:message name="IServiceSurf_InsertLocations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertLocationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceSurf_UpdateLocations_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLocations" />
+  </wsdl:message>
+  <wsdl:message name="IServiceSurf_UpdateLocations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLocationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceSurf_DeleteLocations_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteLocations" />
+  </wsdl:message>
+  <wsdl:message name="IServiceSurf_DeleteLocations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteLocationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceSurf_GetAllComments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllComments" />
+  </wsdl:message>
+  <wsdl:message name="IServiceSurf_GetAllComments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCommentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceSurf_InsertComments_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertComments" />
+  </wsdl:message>
+  <wsdl:message name="IServiceSurf_InsertComments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCommentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceSurf_UpdateComments_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateComments" />
+  </wsdl:message>
+  <wsdl:message name="IServiceSurf_UpdateComments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCommentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceSurf_DeleteComments_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteComments" />
+  </wsdl:message>
+  <wsdl:message name="IServiceSurf_DeleteComments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCommentsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IServiceSurf">
+    <wsdl:operation name="GetAllUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceSurf/GetAllUser" message="tns:IServiceSurf_GetAllUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceSurf/GetAllUserResponse" message="tns:IServiceSurf_GetAllUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LogIn">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceSurf/LogIn" message="tns:IServiceSurf_LogIn_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceSurf/LogInResponse" message="tns:IServiceSurf_LogIn_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceSurf/InsertUser" message="tns:IServiceSurf_InsertUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceSurf/InsertUserResponse" message="tns:IServiceSurf_InsertUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceSurf/UpdateUser" message="tns:IServiceSurf_UpdateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceSurf/UpdateUserResponse" message="tns:IServiceSurf_UpdateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceSurf/DeleteUser" message="tns:IServiceSurf_DeleteUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceSurf/DeleteUserResponse" message="tns:IServiceSurf_DeleteUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTypeSurf">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceSurf/GetAllTypeSurf" message="tns:IServiceSurf_GetAllTypeSurf_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceSurf/GetAllTypeSurfResponse" message="tns:IServiceSurf_GetAllTypeSurf_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertTypeSurf">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceSurf/InsertTypeSurf" message="tns:IServiceSurf_InsertTypeSurf_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceSurf/InsertTypeSurfResponse" message="tns:IServiceSurf_InsertTypeSurf_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTypeSurf">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceSurf/UpdateTypeSurf" message="tns:IServiceSurf_UpdateTypeSurf_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceSurf/UpdateTypeSurfResponse" message="tns:IServiceSurf_UpdateTypeSurf_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTypeSurf">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceSurf/DeleteTypeSurf" message="tns:IServiceSurf_DeleteTypeSurf_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceSurf/DeleteTypeSurfResponse" message="tns:IServiceSurf_DeleteTypeSurf_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSurfClubs">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceSurf/GetAllSurfClubs" message="tns:IServiceSurf_GetAllSurfClubs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceSurf/GetAllSurfClubsResponse" message="tns:IServiceSurf_GetAllSurfClubs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertSurfClubs">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceSurf/InsertSurfClubs" message="tns:IServiceSurf_InsertSurfClubs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceSurf/InsertSurfClubsResponse" message="tns:IServiceSurf_InsertSurfClubs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSurfClubs">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceSurf/UpdateSurfClubs" message="tns:IServiceSurf_UpdateSurfClubs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceSurf/UpdateSurfClubsResponse" message="tns:IServiceSurf_UpdateSurfClubs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSurfClubs">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceSurf/DeleteSurfClubs" message="tns:IServiceSurf_DeleteSurfClubs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceSurf/DeleteSurfClubsResponse" message="tns:IServiceSurf_DeleteSurfClubs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLocations">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceSurf/GetAllLocations" message="tns:IServiceSurf_GetAllLocations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceSurf/GetAllLocationsResponse" message="tns:IServiceSurf_GetAllLocations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertLocations">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceSurf/InsertLocations" message="tns:IServiceSurf_InsertLocations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceSurf/InsertLocationsResponse" message="tns:IServiceSurf_InsertLocations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLocations">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceSurf/UpdateLocations" message="tns:IServiceSurf_UpdateLocations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceSurf/UpdateLocationsResponse" message="tns:IServiceSurf_UpdateLocations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLocations">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceSurf/DeleteLocations" message="tns:IServiceSurf_DeleteLocations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceSurf/DeleteLocationsResponse" message="tns:IServiceSurf_DeleteLocations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllComments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceSurf/GetAllComments" message="tns:IServiceSurf_GetAllComments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceSurf/GetAllCommentsResponse" message="tns:IServiceSurf_GetAllComments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertComments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceSurf/InsertComments" message="tns:IServiceSurf_InsertComments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceSurf/InsertCommentsResponse" message="tns:IServiceSurf_InsertComments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateComments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceSurf/UpdateComments" message="tns:IServiceSurf_UpdateComments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceSurf/UpdateCommentsResponse" message="tns:IServiceSurf_UpdateComments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteComments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceSurf/DeleteComments" message="tns:IServiceSurf_DeleteComments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceSurf/DeleteCommentsResponse" message="tns:IServiceSurf_DeleteComments_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IServiceSurf" type="tns:IServiceSurf">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllUser">
+      <soap:operation soapAction="http://tempuri.org/IServiceSurf/GetAllUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogIn">
+      <soap:operation soapAction="http://tempuri.org/IServiceSurf/LogIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertUser">
+      <soap:operation soapAction="http://tempuri.org/IServiceSurf/InsertUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <soap:operation soapAction="http://tempuri.org/IServiceSurf/UpdateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <soap:operation soapAction="http://tempuri.org/IServiceSurf/DeleteUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTypeSurf">
+      <soap:operation soapAction="http://tempuri.org/IServiceSurf/GetAllTypeSurf" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertTypeSurf">
+      <soap:operation soapAction="http://tempuri.org/IServiceSurf/InsertTypeSurf" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTypeSurf">
+      <soap:operation soapAction="http://tempuri.org/IServiceSurf/UpdateTypeSurf" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTypeSurf">
+      <soap:operation soapAction="http://tempuri.org/IServiceSurf/DeleteTypeSurf" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSurfClubs">
+      <soap:operation soapAction="http://tempuri.org/IServiceSurf/GetAllSurfClubs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertSurfClubs">
+      <soap:operation soapAction="http://tempuri.org/IServiceSurf/InsertSurfClubs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSurfClubs">
+      <soap:operation soapAction="http://tempuri.org/IServiceSurf/UpdateSurfClubs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSurfClubs">
+      <soap:operation soapAction="http://tempuri.org/IServiceSurf/DeleteSurfClubs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLocations">
+      <soap:operation soapAction="http://tempuri.org/IServiceSurf/GetAllLocations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertLocations">
+      <soap:operation soapAction="http://tempuri.org/IServiceSurf/InsertLocations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLocations">
+      <soap:operation soapAction="http://tempuri.org/IServiceSurf/UpdateLocations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLocations">
+      <soap:operation soapAction="http://tempuri.org/IServiceSurf/DeleteLocations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllComments">
+      <soap:operation soapAction="http://tempuri.org/IServiceSurf/GetAllComments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertComments">
+      <soap:operation soapAction="http://tempuri.org/IServiceSurf/InsertComments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateComments">
+      <soap:operation soapAction="http://tempuri.org/IServiceSurf/UpdateComments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteComments">
+      <soap:operation soapAction="http://tempuri.org/IServiceSurf/DeleteComments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceSurf">
+    <wsdl:port name="BasicHttpBinding_IServiceSurf" binding="tns:BasicHttpBinding_IServiceSurf">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/ServiceModel/ServiceSurf/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

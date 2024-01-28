@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="3716b10b-57f6-4ca2-8c85-945f798487ab" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/ServiceModel/ServiceSurf/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="271dc9f0-a951-4a32-9e98-aa9443d5ca1a" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ServiceModel/ServiceSurf/?xsd=xsd1" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="c6db008c-5286-4f0b-8e12-33791d1d2634" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ServiceModel/ServiceSurf/?xsd=xsd2" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="d4098ca6-4e1c-486d-9f57-2a9c05fbceea" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ServiceModel/ServiceSurf/?xsd=xsd0" />
+    <MetadataFile FileName="ServiceSurf.wsdl" MetadataType="Wsdl" ID="d0991a6b-0108-470a-80c6-b6f2297ff5ee" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ServiceModel/ServiceSurf/?wsdl" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="b43ce4b5-1785-4005-a274-136a9d3b7bfd" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ServiceModel/ServiceSurf/?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
