@@ -9,7 +9,7 @@
   <xs:element name="GetAllUserResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetAllUserResult" nillable="true" type="q1:ArrayOfUser" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetAllUserResult" nillable="true" type="q1:UserList" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -91,7 +91,7 @@
   <xs:element name="GetAllTypeSurfResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetAllTypeSurfResult" nillable="true" type="q7:ArrayOfTypeSurf" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetAllTypeSurfResult" nillable="true" type="q7:TypeSurfList" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -145,7 +145,7 @@
   <xs:element name="GetAllSurfClubsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetAllSurfClubsResult" nillable="true" type="q11:ArrayOfSurfClubs" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetAllSurfClubsResult" nillable="true" type="q11:SurfClubsList" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -199,7 +199,7 @@
   <xs:element name="GetAllLocationsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetAllLocationsResult" nillable="true" type="q15:ArrayOfLocations" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetAllLocationsResult" nillable="true" type="q15:LocationsList" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -253,7 +253,7 @@
   <xs:element name="GetAllCommentsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetAllCommentsResult" nillable="true" type="q19:ArrayOfComments" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetAllCommentsResult" nillable="true" type="q19:CommentsList" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

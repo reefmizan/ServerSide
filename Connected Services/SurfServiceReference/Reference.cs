@@ -15,6 +15,13 @@ namespace WpfClientReef.SurfServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="UserList", Namespace="http://schemas.datacontract.org/2004/07/Model", ItemName="User")]
+    [System.SerializableAttribute()]
+    public class UserList : System.Collections.Generic.List<WpfClientReef.SurfServiceReference.User> {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="User", Namespace="http://schemas.datacontract.org/2004/07/Model")]
     [System.SerializableAttribute()]
     public partial class User : WpfClientReef.SurfServiceReference.BaseEntity {
@@ -41,7 +48,7 @@ namespace WpfClientReef.SurfServiceReference {
         private string PhonenumField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WpfClientReef.SurfServiceReference.TypeSurf[] SurfslstField;
+        private WpfClientReef.SurfServiceReference.TypeSurfList SurfslstField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.DateTime Birthday {
@@ -135,7 +142,7 @@ namespace WpfClientReef.SurfServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public WpfClientReef.SurfServiceReference.TypeSurf[] Surfslst {
+        public WpfClientReef.SurfServiceReference.TypeSurfList Surfslst {
             get {
                 return this.SurfslstField;
             }
@@ -205,7 +212,26 @@ namespace WpfClientReef.SurfServiceReference {
     public partial class TypeSurf : WpfClientReef.SurfServiceReference.BaseEntity {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string URLSField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Name {
@@ -216,6 +242,19 @@ namespace WpfClientReef.SurfServiceReference {
                 if ((object.ReferenceEquals(this.NameField, value) != true)) {
                     this.NameField = value;
                     this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string URLS {
+            get {
+                return this.URLSField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.URLSField, value) != true)) {
+                    this.URLSField = value;
+                    this.RaisePropertyChanged("URLS");
                 }
             }
         }
@@ -402,15 +441,43 @@ namespace WpfClientReef.SurfServiceReference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="TypeSurfList", Namespace="http://schemas.datacontract.org/2004/07/Model", ItemName="TypeSurf")]
+    [System.SerializableAttribute()]
+    public class TypeSurfList : System.Collections.Generic.List<WpfClientReef.SurfServiceReference.TypeSurf> {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="SurfClubsList", Namespace="http://schemas.datacontract.org/2004/07/Model", ItemName="SurfClubs")]
+    [System.SerializableAttribute()]
+    public class SurfClubsList : System.Collections.Generic.List<WpfClientReef.SurfServiceReference.SurfClubs> {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="LocationsList", Namespace="http://schemas.datacontract.org/2004/07/Model", ItemName="Locations")]
+    [System.SerializableAttribute()]
+    public class LocationsList : System.Collections.Generic.List<WpfClientReef.SurfServiceReference.Locations> {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="CommentsList", Namespace="http://schemas.datacontract.org/2004/07/Model", ItemName="Comments")]
+    [System.SerializableAttribute()]
+    public class CommentsList : System.Collections.Generic.List<WpfClientReef.SurfServiceReference.Comments> {
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SurfServiceReference.IServiceSurf")]
     public interface IServiceSurf {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceSurf/GetAllUser", ReplyAction="http://tempuri.org/IServiceSurf/GetAllUserResponse")]
-        WpfClientReef.SurfServiceReference.User[] GetAllUser();
+        WpfClientReef.SurfServiceReference.UserList GetAllUser();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceSurf/GetAllUser", ReplyAction="http://tempuri.org/IServiceSurf/GetAllUserResponse")]
-        System.Threading.Tasks.Task<WpfClientReef.SurfServiceReference.User[]> GetAllUserAsync();
+        System.Threading.Tasks.Task<WpfClientReef.SurfServiceReference.UserList> GetAllUserAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceSurf/LogIn", ReplyAction="http://tempuri.org/IServiceSurf/LogInResponse")]
         WpfClientReef.SurfServiceReference.User LogIn(WpfClientReef.SurfServiceReference.User user);
@@ -443,10 +510,10 @@ namespace WpfClientReef.SurfServiceReference {
         System.Threading.Tasks.Task<int> DeleteUserAsync(WpfClientReef.SurfServiceReference.User user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceSurf/GetAllTypeSurf", ReplyAction="http://tempuri.org/IServiceSurf/GetAllTypeSurfResponse")]
-        WpfClientReef.SurfServiceReference.TypeSurf[] GetAllTypeSurf();
+        WpfClientReef.SurfServiceReference.TypeSurfList GetAllTypeSurf();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceSurf/GetAllTypeSurf", ReplyAction="http://tempuri.org/IServiceSurf/GetAllTypeSurfResponse")]
-        System.Threading.Tasks.Task<WpfClientReef.SurfServiceReference.TypeSurf[]> GetAllTypeSurfAsync();
+        System.Threading.Tasks.Task<WpfClientReef.SurfServiceReference.TypeSurfList> GetAllTypeSurfAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceSurf/InsertTypeSurf", ReplyAction="http://tempuri.org/IServiceSurf/InsertTypeSurfResponse")]
         int InsertTypeSurf(WpfClientReef.SurfServiceReference.TypeSurf typeSurf);
@@ -467,10 +534,10 @@ namespace WpfClientReef.SurfServiceReference {
         System.Threading.Tasks.Task<int> DeleteTypeSurfAsync(WpfClientReef.SurfServiceReference.TypeSurf typeSurf);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceSurf/GetAllSurfClubs", ReplyAction="http://tempuri.org/IServiceSurf/GetAllSurfClubsResponse")]
-        WpfClientReef.SurfServiceReference.SurfClubs[] GetAllSurfClubs();
+        WpfClientReef.SurfServiceReference.SurfClubsList GetAllSurfClubs();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceSurf/GetAllSurfClubs", ReplyAction="http://tempuri.org/IServiceSurf/GetAllSurfClubsResponse")]
-        System.Threading.Tasks.Task<WpfClientReef.SurfServiceReference.SurfClubs[]> GetAllSurfClubsAsync();
+        System.Threading.Tasks.Task<WpfClientReef.SurfServiceReference.SurfClubsList> GetAllSurfClubsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceSurf/InsertSurfClubs", ReplyAction="http://tempuri.org/IServiceSurf/InsertSurfClubsResponse")]
         int InsertSurfClubs(WpfClientReef.SurfServiceReference.SurfClubs surfClubs);
@@ -491,10 +558,10 @@ namespace WpfClientReef.SurfServiceReference {
         System.Threading.Tasks.Task<int> DeleteSurfClubsAsync(WpfClientReef.SurfServiceReference.SurfClubs surfClubs);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceSurf/GetAllLocations", ReplyAction="http://tempuri.org/IServiceSurf/GetAllLocationsResponse")]
-        WpfClientReef.SurfServiceReference.Locations[] GetAllLocations();
+        WpfClientReef.SurfServiceReference.LocationsList GetAllLocations();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceSurf/GetAllLocations", ReplyAction="http://tempuri.org/IServiceSurf/GetAllLocationsResponse")]
-        System.Threading.Tasks.Task<WpfClientReef.SurfServiceReference.Locations[]> GetAllLocationsAsync();
+        System.Threading.Tasks.Task<WpfClientReef.SurfServiceReference.LocationsList> GetAllLocationsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceSurf/InsertLocations", ReplyAction="http://tempuri.org/IServiceSurf/InsertLocationsResponse")]
         int InsertLocations(WpfClientReef.SurfServiceReference.Locations locations);
@@ -515,10 +582,10 @@ namespace WpfClientReef.SurfServiceReference {
         System.Threading.Tasks.Task<int> DeleteLocationsAsync(WpfClientReef.SurfServiceReference.Locations locations);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceSurf/GetAllComments", ReplyAction="http://tempuri.org/IServiceSurf/GetAllCommentsResponse")]
-        WpfClientReef.SurfServiceReference.Comments[] GetAllComments();
+        WpfClientReef.SurfServiceReference.CommentsList GetAllComments();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceSurf/GetAllComments", ReplyAction="http://tempuri.org/IServiceSurf/GetAllCommentsResponse")]
-        System.Threading.Tasks.Task<WpfClientReef.SurfServiceReference.Comments[]> GetAllCommentsAsync();
+        System.Threading.Tasks.Task<WpfClientReef.SurfServiceReference.CommentsList> GetAllCommentsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceSurf/InsertComments", ReplyAction="http://tempuri.org/IServiceSurf/InsertCommentsResponse")]
         int InsertComments(WpfClientReef.SurfServiceReference.Comments comments);
@@ -566,11 +633,11 @@ namespace WpfClientReef.SurfServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public WpfClientReef.SurfServiceReference.User[] GetAllUser() {
+        public WpfClientReef.SurfServiceReference.UserList GetAllUser() {
             return base.Channel.GetAllUser();
         }
         
-        public System.Threading.Tasks.Task<WpfClientReef.SurfServiceReference.User[]> GetAllUserAsync() {
+        public System.Threading.Tasks.Task<WpfClientReef.SurfServiceReference.UserList> GetAllUserAsync() {
             return base.Channel.GetAllUserAsync();
         }
         
@@ -614,11 +681,11 @@ namespace WpfClientReef.SurfServiceReference {
             return base.Channel.DeleteUserAsync(user);
         }
         
-        public WpfClientReef.SurfServiceReference.TypeSurf[] GetAllTypeSurf() {
+        public WpfClientReef.SurfServiceReference.TypeSurfList GetAllTypeSurf() {
             return base.Channel.GetAllTypeSurf();
         }
         
-        public System.Threading.Tasks.Task<WpfClientReef.SurfServiceReference.TypeSurf[]> GetAllTypeSurfAsync() {
+        public System.Threading.Tasks.Task<WpfClientReef.SurfServiceReference.TypeSurfList> GetAllTypeSurfAsync() {
             return base.Channel.GetAllTypeSurfAsync();
         }
         
@@ -646,11 +713,11 @@ namespace WpfClientReef.SurfServiceReference {
             return base.Channel.DeleteTypeSurfAsync(typeSurf);
         }
         
-        public WpfClientReef.SurfServiceReference.SurfClubs[] GetAllSurfClubs() {
+        public WpfClientReef.SurfServiceReference.SurfClubsList GetAllSurfClubs() {
             return base.Channel.GetAllSurfClubs();
         }
         
-        public System.Threading.Tasks.Task<WpfClientReef.SurfServiceReference.SurfClubs[]> GetAllSurfClubsAsync() {
+        public System.Threading.Tasks.Task<WpfClientReef.SurfServiceReference.SurfClubsList> GetAllSurfClubsAsync() {
             return base.Channel.GetAllSurfClubsAsync();
         }
         
@@ -678,11 +745,11 @@ namespace WpfClientReef.SurfServiceReference {
             return base.Channel.DeleteSurfClubsAsync(surfClubs);
         }
         
-        public WpfClientReef.SurfServiceReference.Locations[] GetAllLocations() {
+        public WpfClientReef.SurfServiceReference.LocationsList GetAllLocations() {
             return base.Channel.GetAllLocations();
         }
         
-        public System.Threading.Tasks.Task<WpfClientReef.SurfServiceReference.Locations[]> GetAllLocationsAsync() {
+        public System.Threading.Tasks.Task<WpfClientReef.SurfServiceReference.LocationsList> GetAllLocationsAsync() {
             return base.Channel.GetAllLocationsAsync();
         }
         
@@ -710,11 +777,11 @@ namespace WpfClientReef.SurfServiceReference {
             return base.Channel.DeleteLocationsAsync(locations);
         }
         
-        public WpfClientReef.SurfServiceReference.Comments[] GetAllComments() {
+        public WpfClientReef.SurfServiceReference.CommentsList GetAllComments() {
             return base.Channel.GetAllComments();
         }
         
-        public System.Threading.Tasks.Task<WpfClientReef.SurfServiceReference.Comments[]> GetAllCommentsAsync() {
+        public System.Threading.Tasks.Task<WpfClientReef.SurfServiceReference.CommentsList> GetAllCommentsAsync() {
             return base.Channel.GetAllCommentsAsync();
         }
         

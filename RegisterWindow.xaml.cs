@@ -23,42 +23,50 @@ namespace WpfClientReef
     /// </summary>
     public partial class RegisterWindow : Window
     {
-        User user;
-        bool passOK;
-        ServiceSurfClient serviceSurf;
+        private User user;
+        private bool passOK;
+        bool birthOK;
+        private TypeSurfList surftypes;
+        private ServiceSurfClient serviceSurf;
+        private TypeSurf tp;
         public RegisterWindow()
         {
             InitializeComponent();
             user = new User();
             this.DataContext = user;
-            passOK=false;   
+            passOK = false;
+            birthOK = false;
+            LoadView();
         }
         private void btnSignup_Click(object sender, RoutedEventArgs e)
         {
-            if (user.Password == null || user.FirstName == null || 
-                user.LastName == null || user.Birthday == null || 
-                user.Phonenum == null || user.Email == null)
+
+            if (user.Password == String.Empty || user.FirstName == String.Empty ||
+                user.LastName == String.Empty || user.Birthday == null ||
+                user.Phonenum == String.Empty || user.Email == null || user.Surfslst != null)
             {
                 MessageBox.Show("Your Not good\nFill the missing data", "NOT OK", MessageBoxButton.OK);
                 return;
             }
-            if (Validation.GetHasError(tbFname) || Validation.GetHasError(tbLname) || 
-                Validation.GetHasError(tbBirthYear) || Validation.GetHasError(tbPhonenum) || 
-                Validation.GetHasError(tbEmail) || !passOK)
-            {                
+            if (Validation.GetHasError(tbFname) || Validation.GetHasError(tbLname) 
+                 || Validation.GetHasError(tbPhonenum) ||
+               Validation.GetHasError(tbEmail) || !passOK || !birthOK)
+            {
                 MessageBox.Show("Your Not good\nFix the data", "OK", MessageBoxButton.OK);
                 return;
             }
             serviceSurf = new ServiceSurfClient();
-           if (!serviceSurf.IsEmailFree(user.Email))
+            if (!serviceSurf.IsEmailFree(user.Email))
             {
                 MessageBox.Show("Email is in my system\nTry a different email", "OK", MessageBoxButton.OK);
                 return;
             }
-            if(serviceSurf.InsertUser(user)==1)
+            if (serviceSurf.InsertUser(user) == 1)
             {
                 MessageBox.Show("Wellcom!", "OK", MessageBoxButton.OK);
-              this.Close();
+                LoginWindow loginw = new LoginWindow();
+                this.Close();
+                loginw.ShowDialog();
             }
         }
 
@@ -80,7 +88,30 @@ namespace WpfClientReef
                 pbPassword.ToolTip = result.ErrorContent.ToString();
                 passOK = false;
             }
+            user.Password = pbPassword.Password;
+
         }
+        private void tbBirthday_BirthdayChanged(object sender, RoutedEventArgs e)
+        {
+            ValidBirthYear validBirthYear = new ValidBirthYear();
+            ValidationResult result = validBirthYear.Validate(user.Birthday, CultureInfo.CurrentCulture);
+            if (result.IsValid)
+            {
+                tbBirthYear.BorderBrush = Brushes.Transparent;
+                tbBirthYear.BorderThickness = new Thickness(0);
+                tbBirthYear.ToolTip = null;
+                birthOK = true;
+            }
+            else
+            {
+                tbBirthYear.BorderBrush = Brushes.Red;
+                tbBirthYear.BorderThickness = new Thickness(2);
+                tbBirthYear.ToolTip = result.ErrorContent.ToString();
+                birthOK = false;
+            }
+
+        }
+
 
         private void btnClear_Click(object sender, RoutedEventArgs e)
         {
@@ -89,7 +120,48 @@ namespace WpfClientReef
         }
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
+            LoginWindow loginw = new LoginWindow();
             this.Close();
+            loginw.ShowDialog();
+
         }
+        private void LoadView()
+        {
+            serviceSurf = new ServiceSurfClient();
+            surftypes = serviceSurf.GetAllTypeSurf();
+            Expander expander = new Expander();
+            TextBlock Header = new TextBlock();
+            Header.FontSize = 20;
+            Header.Text = "Surf Types:";
+            expander.Header = Header;
+            StackPanel sp = new StackPanel();
+            sp.Margin = new Thickness(15, 0, 0, 0);
+            expander.Content = sp;
+            foreach (TypeSurf tp in surftypes)
+            {
+                CheckBox checkBox = new CheckBox();
+                checkBox.Content = tp.Name;
+                checkBox.Tag = tp;
+                checkBox.Margin = new Thickness(5);
+                sp.Children.Add(checkBox);
+            }
+            TypeSurfStack.Children.Add(expander);
+            //foreach (TypeSurf t in surftypes)
+            //{
+            //    Expander expander = new Expander();
+            //    TextBlock Header = new TextBlock();
+            //    Header.FontSize = 10;
+            //    Header.Text = t.Name;
+            //    expander.Header = Header;
+            //    StackPanel sp = new StackPanel();
+            //    sp.Margin = new Thickness(15, 0, 0, 0);
+            //    expander.Content = sp;
+            //}
+            //Real One
+        }
+    
+        
+    
     }
+
 }

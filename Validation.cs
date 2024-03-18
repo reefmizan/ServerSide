@@ -15,13 +15,31 @@ namespace WpfClientReef
         {
             try
             {
-                int year = int.Parse(value.ToString());
-                if (year < 1900)
+                DateTime date = DateTime.Parse(value.ToString());
+                if (date.Year < 1900)
                     return new ValidationResult(false, "Too old");
-                if (year > DateTime.Today.Year)
+                if (date.Month > 12 && date.Month < 1)
                     return new ValidationResult(false, "No way!");
+                if (date.Day > 31 && date.Day < 1)
+                    return new ValidationResult(false, "No way!");
+                if (date.Year > DateTime.Now.Year)
+                    return new ValidationResult(false, "No way!");
+                else if(date.Year == DateTime.Now.Year)
+                {
+                    if (date.Month == DateTime.Now.Month)
+                    {
+                        if (date.Day >= DateTime.Now.Day)
+                            return new ValidationResult(false, "No Way!");
+
+                    }
+                    else if (date.Month > DateTime.Now.Month)
+                        return new ValidationResult(false, "No Way!");
+
+
+                }
+
             }
-            catch (Exception ex)
+            catch (Exception ex )
             {
                 return new ValidationResult(false, ex.Message);
             }
@@ -109,6 +127,7 @@ namespace WpfClientReef
         public override ValidationResult Validate(object value,
             CultureInfo cultureInfo)
         {
+
             string email = value.ToString().Trim();
             Regex regex = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
             bool res = regex.IsMatch(email);
@@ -116,6 +135,36 @@ namespace WpfClientReef
             if (!res)
             {
                 return new ValidationResult(res, "Email not valid");
+            }
+            return ValidationResult.ValidResult;
+        }
+    }
+    public class ValidPhoneNumber : ValidationRule
+    {
+        public override ValidationResult Validate(object value, CultureInfo cultureInfo)
+        {
+            try
+            {
+                string PhoneNumber = value.ToString();
+
+                if (PhoneNumber.Length != 10)
+                    return new ValidationResult(false, "Phone number must have 10 digits");
+
+                if (PhoneNumber[0] != '0' || PhoneNumber[1] != '5')
+                    return new ValidationResult(false, "Illegal beginning");
+
+                if (PhoneNumber.IndexOf(" ") != -1)
+                    return new ValidationResult(false, "Phone number shouldn't include spaces");
+
+                for (int i = 0; i < PhoneNumber.Length; i++)
+                {
+                    if (!(Char.IsDigit(PhoneNumber[i])))
+                        return new ValidationResult(false, "Numbers only!");
+                }
+            }
+            catch (Exception ex)
+            {
+                return new ValidationResult(false, ex.Message);
             }
             return ValidationResult.ValidResult;
         }
