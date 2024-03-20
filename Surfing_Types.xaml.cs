@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CefSharp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 using WpfClientReef.SurfServiceReference;
 
 namespace WpfClientReef
@@ -23,6 +25,7 @@ namespace WpfClientReef
     {
         private TypeSurfList typeSurves;
         private ServiceSurfClient serviceSurfClient;
+        WebBrowser webBrowser;
         public Surfing_Types()
         {
             InitializeComponent();
@@ -34,7 +37,7 @@ namespace WpfClientReef
         {
             spData.Children.Clear();
             string name = (sender as Button).Name;
-            List<TypeSurf> list =typeSurves.FindAll(t => t.Name.StartsWith(name)).ToList();
+            List<TypeSurf> list = typeSurves.FindAll(t => t.Name.StartsWith(name)).ToList();
             foreach(TypeSurf tp in list)
             {
                 TextBlock tbHeader=new TextBlock();
@@ -51,30 +54,25 @@ namespace WpfClientReef
                 stackPanel.Margin = new Thickness(10);
                 stackPanel.MouseDown += StackPanel_MouseDown;
                 stackPanel.Tag = tp;
-                spData.Children.Add(stackPanel);
-                
-
-
+                spData.Children.Add(stackPanel);              
             }
 
         }
         private void StackPanel_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            TypeSurf typeSurf =(sender as StackPanel).Tag as TypeSurf;
-            if (typeSurf != null)
-            {
-                string videoId = typeSurf.URLS;
-                string embedUrl = $"https://www.youtube.com/embed/{videoId.Substring(videoId.LastIndexOf("be")+2)}";
-                var embed = "<html><head>" +
-                "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"/>" +
-                "</head></body>" +
-                "<iframe width=\"300\" src=\"{0}\"" +
-                "frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>"+
-                "</body></html>";
-                videoME.Navigate(typeSurf.URLS);
-                
-
-            }
+            TypeSurf tp = (sender as StackPanel).Tag as TypeSurf;
+            //https://www.youtube.com/watch?v=TT6fHQR8SD8";
+            string url = tp.URLS.ToString();
+            url = url.Substring(url.LastIndexOf("?v=") + 3);
+            string html = "<html style='width: 100%; height: 100%; margin: 0; padding: 0;'><head>";
+            html += "<meta content='IE=Edge' http-equiv='X-UA-Compatible'/>";
+            html += "</head><body style='width: 100%; height: 100%; margin: 0; padding: 0;'>";
+            html += $"<iframe id='video' src='https://www.youtube.com/embed/{url}' style=\"padding: 0px; width: 100%; height: 100%; border: none; display: block;\" allowfullscreen></iframe>";
+            html += "</body></html>";
+            webBrowser = new WebBrowser();
+            webBrowser.NavigateToString(html);
+            videoME.Children.Add(webBrowser);
+            
         }
     }
 }

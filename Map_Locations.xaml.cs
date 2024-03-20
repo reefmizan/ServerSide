@@ -50,7 +50,12 @@ namespace WpfClientReef
 
         private void Location_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            
+            Locations location = (Locations)cmbLocation.SelectedItem;
+            string city = location.Name.Substring(location.Name.LastIndexOf(", ") + 2);
+            string[] windspeed = WindManager.getWindSpeed(city);
+            if (windspeed != null)
+                WindMeter.Text = windspeed[0];
+                WindMeterGast.Text = windspeed[1];
         }
 
         private void cmbLocation_SelectionChanged(object sender, SelectionChangedEventArgs e)

@@ -53,8 +53,8 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <StackPanel x:Name="spData" Grid.Column="0" />
-                <WebBrowser x:Name="videoME" Grid.Column="1"/>
-
+            <Grid x:Name="videoME"
+                  Grid.Column="1" />
         </Grid>
     </Grid>
 </UserControl>

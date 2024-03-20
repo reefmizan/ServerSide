@@ -33,6 +33,14 @@
                           Width="210"
                           SelectionChanged="cmbLocation_SelectionChanged"></ComboBox>
             </DockPanel>
+            <StackPanel>
+                <TextBlock x:Name="WindMeter"
+                           Foreground="White"
+                           FontSize="30" />
+                <TextBlock x:Name="WindMeterGast" FontSize="30"
+                           Foreground="White" />
+            </StackPanel>
+           
             <Grid Margin="0 15">
                 <StackPanel Orientation="Horizontal"
                             Margin="10 0">
@@ -40,6 +48,7 @@
                     
                     
                 </StackPanel>
+                
             </Grid>
         </StackPanel>
         <m:Map CredentialsProvider="U24dQlP7Qjpf3xtMnhIM~QVx-nOwAwKAIxaHpu9Wi5w~ApUoaJPyLA5-LQSnbDktUv2pYqizpVP6VsYrkH-lGi_Hqvg_ot_TTVUsXwX-Isso"
