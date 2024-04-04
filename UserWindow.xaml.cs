@@ -47,5 +47,11 @@ namespace WpfClientReef
             UserControls.Children.Add(new Map_Locations());
 
         }
+        private void SurfClubs_Selected(object sender, RoutedEventArgs e)
+        {
+            Clear_Grid();
+            UserControls.Children.Add(new SurfClubsUC());
+
+        }
     }
 }

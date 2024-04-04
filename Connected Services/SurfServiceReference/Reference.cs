@@ -267,10 +267,42 @@ namespace WpfClientReef.SurfServiceReference {
     public partial class SurfClubs : WpfClientReef.SurfServiceReference.BaseEntity {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private WpfClientReef.SurfServiceReference.Locations LocationField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Cord {
+            get {
+                return this.CordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CordField, value) != true)) {
+                    this.CordField = value;
+                    this.RaisePropertyChanged("Cord");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public WpfClientReef.SurfServiceReference.Locations Location {
@@ -314,9 +346,6 @@ namespace WpfClientReef.SurfServiceReference {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string WeatherLinkField;
-        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Cord {
             get {
@@ -352,19 +381,6 @@ namespace WpfClientReef.SurfServiceReference {
                 if ((object.ReferenceEquals(this.NameField, value) != true)) {
                     this.NameField = value;
                     this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string WeatherLink {
-            get {
-                return this.WeatherLinkField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.WeatherLinkField, value) != true)) {
-                    this.WeatherLinkField = value;
-                    this.RaisePropertyChanged("WeatherLink");
                 }
             }
         }
@@ -557,6 +573,12 @@ namespace WpfClientReef.SurfServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceSurf/DeleteSurfClubs", ReplyAction="http://tempuri.org/IServiceSurf/DeleteSurfClubsResponse")]
         System.Threading.Tasks.Task<int> DeleteSurfClubsAsync(WpfClientReef.SurfServiceReference.SurfClubs surfClubs);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceSurf/SelectByLocation", ReplyAction="http://tempuri.org/IServiceSurf/SelectByLocationResponse")]
+        WpfClientReef.SurfServiceReference.SurfClubsList SelectByLocation(int location);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceSurf/SelectByLocation", ReplyAction="http://tempuri.org/IServiceSurf/SelectByLocationResponse")]
+        System.Threading.Tasks.Task<WpfClientReef.SurfServiceReference.SurfClubsList> SelectByLocationAsync(int location);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceSurf/GetAllLocations", ReplyAction="http://tempuri.org/IServiceSurf/GetAllLocationsResponse")]
         WpfClientReef.SurfServiceReference.LocationsList GetAllLocations();
         
@@ -743,6 +765,14 @@ namespace WpfClientReef.SurfServiceReference {
         
         public System.Threading.Tasks.Task<int> DeleteSurfClubsAsync(WpfClientReef.SurfServiceReference.SurfClubs surfClubs) {
             return base.Channel.DeleteSurfClubsAsync(surfClubs);
+        }
+        
+        public WpfClientReef.SurfServiceReference.SurfClubsList SelectByLocation(int location) {
+            return base.Channel.SelectByLocation(location);
+        }
+        
+        public System.Threading.Tasks.Task<WpfClientReef.SurfServiceReference.SurfClubsList> SelectByLocationAsync(int location) {
+            return base.Channel.SelectByLocationAsync(location);
         }
         
         public WpfClientReef.SurfServiceReference.LocationsList GetAllLocations() {

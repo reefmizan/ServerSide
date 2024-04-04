@@ -28,7 +28,6 @@ namespace WpfClientReef
         bool birthOK;
         private TypeSurfList surftypes;
         private ServiceSurfClient serviceSurf;
-        private TypeSurf tp;
         public RegisterWindow()
         {
             InitializeComponent();

@@ -191,6 +191,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="SelectByLocation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="location" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectByLocationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="SelectByLocationResult" nillable="true" type="q15:SurfClubsList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetAllLocations">
     <xs:complexType>
       <xs:sequence />
@@ -199,14 +213,14 @@
   <xs:element name="GetAllLocationsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetAllLocationsResult" nillable="true" type="q15:LocationsList" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetAllLocationsResult" nillable="true" type="q16:LocationsList" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="InsertLocations">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="locations" nillable="true" type="q16:Locations" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="locations" nillable="true" type="q17:Locations" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -220,7 +234,7 @@
   <xs:element name="UpdateLocations">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="locations" nillable="true" type="q17:Locations" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="locations" nillable="true" type="q18:Locations" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -234,7 +248,7 @@
   <xs:element name="DeleteLocations">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="locations" nillable="true" type="q18:Locations" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="locations" nillable="true" type="q19:Locations" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -253,14 +267,14 @@
   <xs:element name="GetAllCommentsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetAllCommentsResult" nillable="true" type="q19:CommentsList" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetAllCommentsResult" nillable="true" type="q20:CommentsList" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="InsertComments">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="comments" nillable="true" type="q20:Comments" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="comments" nillable="true" type="q21:Comments" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -274,7 +288,7 @@
   <xs:element name="UpdateComments">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="comments" nillable="true" type="q21:Comments" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="comments" nillable="true" type="q22:Comments" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -288,7 +302,7 @@
   <xs:element name="DeleteComments">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="comments" nillable="true" type="q22:Comments" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="comments" nillable="true" type="q23:Comments" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

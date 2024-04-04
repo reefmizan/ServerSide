@@ -10,63 +10,45 @@
              d:DesignHeight="450"
              d:DesignWidth="800"
              Background="#FF3A3A3A">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="40" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <StackPanel Grid.Row="1"
-                    Margin="10">
-            <DockPanel Background="White" >
-                <MaterialDesign:PackIcon Kind="Location" DockPanel.Dock="Left"
-                                         VerticalAlignment="Center"
-                                         Margin="2" />
-                <MaterialDesign:PackIcon Kind="Search" DockPanel.Dock="Right"
-                                         VerticalAlignment="Center" />
-                <ComboBox x:Name="cmbLocation"
-                          Background="White"
-                          Margin="5"
-                          Width="210"
-                          SelectionChanged="cmbLocation_SelectionChanged"></ComboBox>
-            </DockPanel>
-            <StackPanel>
-                <TextBlock x:Name="WindMeter"
-                           Foreground="White"
-                           FontSize="30" />
-                <TextBlock x:Name="WindMeterGast" FontSize="30"
-                           Foreground="White" />
+    <Grid x:Name="UserControlsMap">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="460" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Row="1"
+                        Margin="10">
+                <DockPanel Background="White">
+                    <MaterialDesign:PackIcon Kind="Location"
+                                             DockPanel.Dock="Left"
+                                             VerticalAlignment="Center"
+                                             Margin="2" />
+                    <MaterialDesign:PackIcon Kind="Search"
+                                             DockPanel.Dock="Right"
+                                             VerticalAlignment="Center" />
+                    <ComboBox x:Name="cmbLocation"
+                              Background="White"
+                              Margin="5"
+                              Width="330"
+                              SelectionChanged="cmbLocation_SelectionChanged"></ComboBox>
+                </DockPanel>
+                <StackPanel x:Name="WindMeter1" />
+                <Grid Margin="0 15">
+                    <StackPanel Orientation="Horizontal"
+                                Margin="10 0"></StackPanel>
+                </Grid>
             </StackPanel>
-           
-            <Grid Margin="0 15">
-                <StackPanel Orientation="Horizontal"
-                            Margin="10 0">
-                    
-                    
-                    
-                </StackPanel>
-                
-            </Grid>
-        </StackPanel>
-        <m:Map CredentialsProvider="U24dQlP7Qjpf3xtMnhIM~QVx-nOwAwKAIxaHpu9Wi5w~ApUoaJPyLA5-LQSnbDktUv2pYqizpVP6VsYrkH-lGi_Hqvg_ot_TTVUsXwX-Isso"
-               Mode="Road"
-               x:Name="map"
-               Grid.Column="1"
-               Grid.Row="1"
-               ZoomLevel="16"
-               Center="-23.1870304,-50.6606103">
-            <Canvas m:MapLayer.Position="-23.1870304,-50.6606103"
-                    m:MapLayer.PositionOrigin="BottomCenter"
-                    Width="30"
-                    Height="30">
-                <MaterialDesign:PackIcon Kind="MapMarker"
-                                         Width="30"
-                                         Height="30"
-                                         Foreground="#FF3C3C3C" />
-            </Canvas>
-        </m:Map>
+            <m:Map CredentialsProvider="U24dQlP7Qjpf3xtMnhIM~QVx-nOwAwKAIxaHpu9Wi5w~ApUoaJPyLA5-LQSnbDktUv2pYqizpVP6VsYrkH-lGi_Hqvg_ot_TTVUsXwX-Isso"
+                   Mode="Road"
+                   x:Name="map"
+                   Grid.Column="1"
+                   Grid.Row="1"
+                   ZoomLevel="16"
+                   Center="-23.1870304,-50.6606103"></m:Map>
+        </Grid>
     </Grid>
 </UserControl>

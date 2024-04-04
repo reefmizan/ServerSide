@@ -116,6 +116,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="SurfClubsUC.xaml.cs">
+      <DependentUpon>SurfClubsUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Surfing_Types.xaml.cs">
       <DependentUpon>Surfing_Types.xaml</DependentUpon>
     </Compile>
@@ -124,6 +127,9 @@
     </Compile>
     <Compile Include="Validation.cs" />
     <Compile Include="WindMeter.cs" />
+    <Compile Include="WindMeterUC.xaml.cs">
+      <DependentUpon>WindMeterUC.xaml</DependentUpon>
+    </Compile>
     <Page Include="LoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -136,11 +142,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="SurfClubsUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Surfing_Types.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindMeterUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -228,6 +242,7 @@
     <Resource Include="Assests\web_logo.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Assests\compass.png" />
     <Content Include="Assests\Find Your Style.mp4" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

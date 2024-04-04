@@ -82,15 +82,17 @@
                             <TextBlock Text="Map" Margin="10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="45" Padding="0">
+                    <ListViewItem Height="45"
+                                  Padding="0"
+                                  Selected="SurfClubs_Selected">
                         <StackPanel Orientation="Horizontal" Margin="10 0">
-                            <MaterialDesign:PackIcon Kind="StarCircle" Width="20" Height="20" Foreground="#FFE6A701" Margin="5" VerticalAlignment="Center"/>
-                            <TextBlock Text="Premium Subscription" Margin="10"/>
+                            <MaterialDesign:PackIcon Kind="People" Width="20" Height="20" Foreground="#FFE6A701" Margin="5" VerticalAlignment="Center"/>
+                            <TextBlock Text="Surfing Clubs" Margin="10"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="45" Padding="0">
                         <StackPanel Orientation="Horizontal" Margin="10 0">
-                            <MaterialDesign:PackIcon Kind="Settings" Width="20" Height="20" Foreground="#FF0069C1" Margin="5" VerticalAlignment="Center"/>
+                            <MaterialDesign:PackIcon Kind="Square" Width="20" Height="20" Foreground="Orange" Margin="5" VerticalAlignment="Center"/>
                             <TextBlock Text="Settings" Margin="10"/>
                         </StackPanel>
                     </ListViewItem>
