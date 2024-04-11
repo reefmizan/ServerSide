@@ -71,14 +71,6 @@ namespace WpfClientReef
             UserControls.Children.Add(new UpdateUC(user));
         }
 
-        private void DeleteUser_Selected(object sender, RoutedEventArgs e)
-        {
-            if (MessageBox.Show("Are you sure?", "Delete account for ever", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
-            {
-                ServiceSurfClient serviceSurfClient = new ServiceSurfClient();
-                serviceSurfClient.DeleteUser(user);
-                this.Close();
-            }
-        }
+       
     }
 }

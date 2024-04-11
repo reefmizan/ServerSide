@@ -51,7 +51,6 @@ namespace WpfClientReef
         
         private void Location_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
             Locations location = (Locations)cmbLocation.SelectedItem;
             string city = location.Name.Substring(location.Name.LastIndexOf(", ") + 2);
             WindMeter1.Children.Clear();

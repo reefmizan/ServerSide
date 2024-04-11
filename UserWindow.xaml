@@ -61,13 +61,8 @@
             <StackPanel>
                 <Image Height="140" Source="\Assests\web_logo.jpg" Stretch="Fill"/>
                 <ListView Foreground="#FF313131"
-                          FontFamily="Champagne &amp; Limousines" FontSize="18">
-                    <ListViewItem Height="45" Padding="0">
-                        <StackPanel Orientation="Horizontal" Margin="10 0">
-                            <MaterialDesign:PackIcon Kind="Recycle" Width="20" Height="20" Foreground="Gray" Margin="5" VerticalAlignment="Center"/>
-                            <TextBlock Text="Companies" Margin="10"/>
-                        </StackPanel>
-                    </ListViewItem>
+                          FontFamily="Champagne &amp; Limousines"
+                          FontSize="18">
                     <ListViewItem Height="45"
                                   Padding="0"
                                   Selected="DeleteUser_Selected">

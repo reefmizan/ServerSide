@@ -84,13 +84,9 @@
                         </Binding.ValidationRules>
                     </Binding>
                 </TextBox>
-
-
-
             </StackPanel>
             <StackPanel  x:Name="TypeSurfStack" CanVerticallyScroll="True" Grid.ColumnSpan="3" Margin="467,-153,10,65"/>
         </Grid>
-
         <Button x:Name="Enter" Content="LOGIN" Click="btnLogin_Click" Width="150" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="565,0,0,26"/>
         <Button x:Name="Sighnup" Content="Sign up" Click="btnSignup_Click" Width="150" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="186,0,0,26"/>
         <Button x:Name="Clear" Content="Clear" Click="btnClear_Click" Width="150" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,806,0,0"/>

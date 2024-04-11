@@ -1,19 +1,25 @@
 ﻿<UserControl x:Class="WpfClientReef.AdminLocUC"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:MaterialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:WpfClientReef"
+             xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
              mc:Ignorable="d"
              d:DesignHeight="450"
              d:DesignWidth="1200">
     <Grid Background="White">
-        <ListView x:Name="UsersLV"
-                  Width="1200"
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <ListView x:Name="LocLV"
                   Grid.Column="0"
                   BorderBrush="Black"
                   VerticalAlignment="Top"
-                  HorizontalAlignment="Center">
+                  HorizontalAlignment="Center"
+                  SelectionChanged="LocLV_SelectionChanged">
             <ListView.ItemContainerStyle>
                 <Style TargetType="{x:Type ListViewItem}">
                     <Setter Property="BorderBrush"
@@ -25,20 +31,91 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID"
-                                    Width="142"
+                                    Width="Auto"
                                     DisplayMemberBinding="{Binding ID}" />
-                    <GridViewColumn Header="id"
-                                    Width="142"
-                                    DisplayMemberBinding="{Binding Name}" />
                     <GridViewColumn Header="Name"
-                                    Width="142"
-                                    DisplayMemberBinding="{Binding Description}" />
-                    <GridViewColumn Header="description"
-                                    Width="142"
-                                    DisplayMemberBinding="{Binding Cord}" />
-                    
+                                    Width="Auto"
+                                    DisplayMemberBinding="{Binding Name}" />
                 </GridView>
             </ListView.View>
         </ListView>
+        <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="100" />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Height="600" Width="600"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                         x:Name="DataSP">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition Height="1.2*" />
+                    <RowDefinition />
+                    <RowDefinition Height="4*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Location info"
+                           FontSize="25"
+                           Grid.Row="0"
+                           FontWeight="Bold"
+                           TextAlignment="Center" />
+                <TextBox x:Name="tbName"
+                         Margin="0,10"
+                         MaterialDesign:HintAssist.Hint="Loaction name"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                         FontFamily="Champagne &amp; Limousines" Grid.Row="1"
+                         FontSize="18">
+                    <Binding Path="Name"
+                             UpdateSourceTrigger="PropertyChanged"
+                             ValidatesOnDataErrors="True">
+                        <Binding.ValidationRules>
+                            <local:ValidName Min="2"
+                                             Max="9" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox>
+                <TextBox x:Name="tbDescription" Grid.Row="2"
+                         TextWrapping="Wrap"
+                         AcceptsReturn="True"
+                         VerticalScrollBarVisibility="Visible"
+                         MaterialDesign:HintAssist.Hint="Description"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                         FontFamily="Champagne &amp; Limousines"
+                         FontSize="18"
+                         RenderTransformOrigin="0.507,0.53">
+                    <Binding Path="Description"
+                             UpdateSourceTrigger="PropertyChanged"
+                             ValidatesOnDataErrors="True">
+                        <Binding.ValidationRules>
+                            <local:ValidDesName Min="2"
+                                             Max="300" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox>
+                <TextBox x:Name="tbCord" Grid.Row="3"
+                         Margin="0,10" IsEnabled="False"
+                         Text="{Binding Path=Cord}"
+                         MaterialDesign:HintAssist.Hint="Cord - Click on map"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                         FontFamily="Champagne &amp; Limousines"
+                         FontSize="18" />
+                <m:Map CredentialsProvider="U24dQlP7Qjpf3xtMnhIM~QVx-nOwAwKAIxaHpu9Wi5w~ApUoaJPyLA5-LQSnbDktUv2pYqizpVP6VsYrkH-lGi_Hqvg_ot_TTVUsXwX-Isso"
+                       Mode="Road"
+                       x:Name="map" Grid.Row="4"
+                       ZoomLevel="16"
+                       MouseDoubleClick="map_MouseDown"
+                       Center="-23.1870304,-50.6606103"></m:Map>
+            </Grid>
+            <StackPanel Grid.Column="1">
+                <Button Content="Clear"
+                        Margin="7"
+                        Click="Clear_Click" />
+                <Button Content="New"
+                        Margin="7"
+                        Click="New_Click"  />
+                <Button Content="Update" Click="Update_Click" Margin="7"/>
+            </StackPanel>
+        </Grid>
     </Grid>
 </UserControl>
