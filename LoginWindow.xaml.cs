@@ -34,11 +34,12 @@ namespace WpfClientReef
 
         private void Enter_Click(object sender, RoutedEventArgs e)
         {
-            UserWindow w = new UserWindow(new User { ID=1});
-            this.Hide();
-            w.ShowDialog();
-            tbEmail.Text = pbPassword.Password = string.Empty;
-            this.Show();
+
+            //UserWindow w = new UserWindow(new User { ID=1});
+            //this.Hide();
+            //w.ShowDialog();
+            //tbEmail.Text = pbPassword.Password = string.Empty;
+            //this.Show();
 
 
             if (!passOK || !emailOK)
@@ -53,11 +54,22 @@ namespace WpfClientReef
                 MessageBox.Show("Email or password don`t system data", "No", MessageBoxButton.OK);
                 return;
             }
-            UserWindow userWindow = new UserWindow(user);
-            this.Hide();
-            userWindow.ShowDialog();
-            tbEmail.Text = pbPassword.Password = string.Empty;
-            this.Show();
+            if (user.IsAdmin)
+            {
+                AdminPG adminPG = new AdminPG(user);
+                this.Hide();
+                adminPG.ShowDialog();
+                tbEmail.Text = pbPassword.Password = string.Empty;
+                this.Show();
+            }
+            else
+            {
+                UserWindow userWindow = new UserWindow(user);
+                this.Hide();
+                userWindow.ShowDialog();
+                tbEmail.Text = pbPassword.Password = string.Empty;
+                this.Show();
+            }
         }
 
         private void Sighnup_Click(object sender, RoutedEventArgs e)

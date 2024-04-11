@@ -17,19 +17,18 @@ using WpfClientReef.SurfServiceReference;
 namespace WpfClientReef
 {
     /// <summary>
-    /// Interaction logic for UserWindow.xaml
+    /// Interaction logic for AdminPG.xaml
     /// </summary>
-    public partial class UserWindow : Window
+    public partial class AdminPG : Window
     {
         private User user;
-        public UserWindow(User user)
+        public AdminPG(User user)
         {
             InitializeComponent();
             Storyboard s = (Storyboard)TryFindResource("OpenMenu");
             s.Begin();
             this.user = user;
         }
-
         private void Clear_Grid()
         {
             UserControls.Children.Clear();
@@ -54,6 +53,18 @@ namespace WpfClientReef
             UserControls.Children.Add(new SurfClubsUC());
 
         }
+
+        private void AdminLoc_Selected(object sender, RoutedEventArgs e)
+        {
+            Clear_Grid();
+            UserControls.Children.Add(new AdminLocUC());
+        }
+
+        private void ListViewItem_Selected(object sender, RoutedEventArgs e)
+        {
+            Clear_Grid();
+            UserControls.Children.Add(new UsersUC());
+        }
         private void Update_Selected(object sender, RoutedEventArgs e)
         {
             Clear_Grid();
@@ -62,7 +73,7 @@ namespace WpfClientReef
 
         private void DeleteUser_Selected(object sender, RoutedEventArgs e)
         {
-            if(MessageBox.Show("Are you sure?","Delete account for ever",MessageBoxButton.YesNo)==MessageBoxResult.Yes)
+            if (MessageBox.Show("Are you sure?", "Delete account for ever", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 ServiceSurfClient serviceSurfClient = new ServiceSurfClient();
                 serviceSurfClient.DeleteUser(user);

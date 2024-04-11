@@ -39,7 +39,11 @@
         </EventTrigger>
     </Window.Triggers>
     <Grid>
-        <Grid x:Name="GridBackground" Background="#55313131" Opacity="0"/>
+        <Grid x:Name="GridBackground"
+              Background="#55313131"
+              Opacity="0">
+            
+        </Grid>
         <Grid x:Name="UserControls" />
         <Button x:Name="ButtonOpen" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}"
                 Width="30" Height="30" Padding="0">
@@ -64,10 +68,27 @@
                             <TextBlock Text="Companies" Margin="10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="45" Padding="0">
+                    <ListViewItem Height="45"
+                                  Padding="0"
+                                  Selected="DeleteUser_Selected">
+                        <StackPanel Orientation="Horizontal"
+                                    Margin="10 0">
+                            <MaterialDesign:PackIcon Kind="TrashCanEmpty"
+                                                     Width="20"
+                                                     Height="20"
+                                                     Foreground="Orange"
+                                                     Margin="5"
+                                                     VerticalAlignment="Center" />
+                            <TextBlock Text="Delete Me"
+                                       Margin="10" />
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="45"
+                                  Padding="0"
+                                  Selected="Update_Selected">
                         <StackPanel Orientation="Horizontal" Margin="10 0">
-                            <MaterialDesign:PackIcon Kind="HelpCircleOutline" Width="20" Height="20" Foreground="#FFF08033" Margin="5" VerticalAlignment="Center"/>
-                            <TextBlock Text="Help" Margin="10"/>
+                            <MaterialDesign:PackIcon Kind="Update" Width="20" Height="20" Foreground="#FFF08033" Margin="5" VerticalAlignment="Center"/>
+                            <TextBlock Text="Update" Margin="10"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="45" Padding="0" Selected="SurfingTypes_Selected">
@@ -90,12 +111,7 @@
                             <TextBlock Text="Surfing Clubs" Margin="10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="45" Padding="0">
-                        <StackPanel Orientation="Horizontal" Margin="10 0">
-                            <MaterialDesign:PackIcon Kind="Square" Width="20" Height="20" Foreground="Orange" Margin="5" VerticalAlignment="Center"/>
-                            <TextBlock Text="Settings" Margin="10"/>
-                        </StackPanel>
-                    </ListViewItem>
+                    
                 </ListView>
             </StackPanel>
             <Button x:Name="ButtonClose" HorizontalAlignment="Right" 

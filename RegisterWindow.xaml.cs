@@ -1,19 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Xml;
 using WpfClientReef.SurfServiceReference;
 
 namespace WpfClientReef
@@ -28,6 +18,7 @@ namespace WpfClientReef
         bool birthOK;
         private TypeSurfList surftypes;
         private ServiceSurfClient serviceSurf;
+        private List<CheckBox> checkboxes;
         public RegisterWindow()
         {
             InitializeComponent();
@@ -35,6 +26,7 @@ namespace WpfClientReef
             this.DataContext = user;
             passOK = false;
             birthOK = false;
+            checkboxes=new List<CheckBox>();
             LoadView();
         }
         private void btnSignup_Click(object sender, RoutedEventArgs e)
@@ -60,13 +52,25 @@ namespace WpfClientReef
                 MessageBox.Show("Email is in my system\nTry a different email", "OK", MessageBoxButton.OK);
                 return;
             }
+            GetUserTypeSurf();
             if (serviceSurf.InsertUser(user) == 1)
             {
-                MessageBox.Show("Wellcom!", "OK", MessageBoxButton.OK);
+                MessageBox.Show("Wellcom!", "OK", MessageBoxButton.OK);               
+
                 LoginWindow loginw = new LoginWindow();
                 this.Close();
                 loginw.ShowDialog();
             }
+        }
+
+        private void GetUserTypeSurf()
+        {
+            user.Surfslst = new TypeSurfList();
+           foreach (CheckBox checkbox in checkboxes)
+           {
+                if ((bool)checkbox.IsChecked)
+                    user.Surfslst.Add(checkbox.Tag as TypeSurf);
+           }
         }
 
         private void pbPassword_PasswordChanged(object sender, RoutedEventArgs e)
@@ -143,23 +147,12 @@ namespace WpfClientReef
                 checkBox.Tag = tp;
                 checkBox.Margin = new Thickness(5);
                 sp.Children.Add(checkBox);
+                checkboxes.Add(checkBox);
             }
             TypeSurfStack.Children.Add(expander);
-            //foreach (TypeSurf t in surftypes)
-            //{
-            //    Expander expander = new Expander();
-            //    TextBlock Header = new TextBlock();
-            //    Header.FontSize = 10;
-            //    Header.Text = t.Name;
-            //    expander.Header = Header;
-            //    StackPanel sp = new StackPanel();
-            //    sp.Margin = new Thickness(15, 0, 0, 0);
-            //    expander.Content = sp;
-            //}
-            //Real One
+            
+
         }
-    
-        
     
     }
 

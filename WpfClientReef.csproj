@@ -98,6 +98,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AdminLocUC.xaml.cs">
+      <DependentUpon>AdminLocUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPG.xaml.cs">
+      <DependentUpon>AdminPG.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\SurfServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -122,6 +128,12 @@
     <Compile Include="Surfing_Types.xaml.cs">
       <DependentUpon>Surfing_Types.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UpdateUC.xaml.cs">
+      <DependentUpon>UpdateUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UsersUC.xaml.cs">
+      <DependentUpon>UsersUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserWindow.xaml.cs">
       <DependentUpon>UserWindow.xaml</DependentUpon>
     </Compile>
@@ -130,6 +142,14 @@
     <Compile Include="WindMeterUC.xaml.cs">
       <DependentUpon>WindMeterUC.xaml</DependentUpon>
     </Compile>
+    <Page Include="AdminLocUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminPG.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -147,6 +167,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Surfing_Types.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UsersUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
