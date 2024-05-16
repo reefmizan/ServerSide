@@ -215,9 +215,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\SurfServiceReference\ServiceSurf.wsdl" />
-    <None Include="Connected Services\SurfServiceReference\WpfClientReef.SurfServiceReference.CommentsList.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Connected Services\SurfServiceReference\WpfClientReef.SurfServiceReference.LocationsList.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

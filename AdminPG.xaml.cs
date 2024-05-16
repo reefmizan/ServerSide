@@ -71,6 +71,13 @@ namespace WpfClientReef
             UserControls.Children.Add(new UpdateUC(user));
         }
 
-       
+        private void LogOut_Selected(object sender, RoutedEventArgs e)
+        {
+            user = null;
+            LoginWindow loginWindow = new LoginWindow();
+            this.Hide();
+            loginWindow.ShowDialog();
+            this.Close();
+        }
     }
 }

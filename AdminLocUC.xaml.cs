@@ -41,9 +41,9 @@ namespace WpfClientReef
             Location pinLocation = map.ViewportPointToLocation(mousePosition);
 
             Pushpin pin = new Pushpin();
-            pin.Location = pinLocation;
+            pin.Location = new Location(pinLocation.Latitude, pinLocation.Longitude);
 
-            tbCord.Text = pinLocation.Longitude.ToString();
+            tbCord.Text = new Location(pinLocation.Latitude,pinLocation.Longitude).ToString();
             map.Children.Add(pin);
         }
 
@@ -61,7 +61,8 @@ namespace WpfClientReef
                 string[] loc = location.Cord.Split(',');
                 pushpin.Location = new Location(double.Parse(loc[0]), double.Parse(loc[1]));
                 map.Children.Add(pushpin);
-                map.Center=pushpin.Location;
+                map.Center = new Location(double.Parse(loc[0]), double.Parse(loc[1]));
+                map.ZoomLevel = 12;
             }
         }
 

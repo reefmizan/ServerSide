@@ -33,15 +33,7 @@ namespace WpfClientReef
         }
 
         private void Enter_Click(object sender, RoutedEventArgs e)
-        {
-
-            //UserWindow w = new UserWindow(new User { ID=1});
-            //this.Hide();
-            //w.ShowDialog();
-            //tbEmail.Text = pbPassword.Password = string.Empty;
-            //this.Show();
-
-
+        {         
             if (!passOK || !emailOK)
             {
                 MessageBox.Show("Something is wrong, Check your data", "No", MessageBoxButton.OK);

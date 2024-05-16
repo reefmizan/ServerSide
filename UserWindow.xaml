@@ -108,7 +108,21 @@
                     </ListViewItem>
                     
                 </ListView>
+                
             </StackPanel>
+            <Button VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                    Padding="0" Width="50" Background="Black" Height="50"
+                    Click="LogOut_Selected"> 
+                <StackPanel Orientation="Horizontal"
+                            Margin="10 0">
+                    <MaterialDesign:PackIcon Kind="ExitToApp"
+                                             Width="25"
+                                             Height="25"
+                                             Foreground="White"
+                                             Margin="5"
+                                             VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Button>
             <Button x:Name="ButtonClose" HorizontalAlignment="Right" 
                     VerticalAlignment="Top" Background="{x:Null}" 
                     BorderBrush="{x:Null}" Foreground="Black"

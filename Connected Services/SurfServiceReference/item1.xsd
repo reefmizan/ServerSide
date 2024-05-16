@@ -84,23 +84,4 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="LocationsList" nillable="true" type="tns:LocationsList" />
-  <xs:complexType name="CommentsList">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Comments" nillable="true" type="tns:Comments" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="CommentsList" nillable="true" type="tns:CommentsList" />
-  <xs:complexType name="Comments">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:BaseEntity">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="Cdatetime" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Location" nillable="true" type="tns:Locations" />
-          <xs:element minOccurs="0" name="User" nillable="true" type="tns:User" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="Comments" nillable="true" type="tns:Comments" />
 </xs:schema>

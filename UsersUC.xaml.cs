@@ -29,14 +29,12 @@ namespace WpfClientReef
             ServiceSurf = new ServiceSurfClient();
             users = ServiceSurf.GetAllUser();
             UsersLV.ItemsSource=users;
+  
         }
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            if(MessageBox.Show("are you sure you want to change this","YesNo",MessageBoxButton.YesNo)==MessageBoxResult.Yes)
-            {
-
-            }
+            MessageBox.Show("Done Champ!");           
         }
     }
 }

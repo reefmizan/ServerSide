@@ -115,6 +115,40 @@ namespace WpfClientReef
             return ValidationResult.ValidResult;
         }
     }
+    public class ValidLocName : ValidationRule
+    {
+        public int Min { get; set; }
+        public int Max { get; set; }
+        public override ValidationResult Validate(object value, CultureInfo cultureInfo)
+        {
+            try
+            {
+                string name = value.ToString();
+                if (name.Length < Min)
+                    return new ValidationResult(false, "too short");
+                if (name.Length > Max)
+                    return new ValidationResult(false, "too long");
+                if (Char.IsWhiteSpace(name[0]))
+                    return new ValidationResult(false, "don't start with space");
+                if (name.IndexOf("  ") > -1)
+                    return new ValidationResult(false, "don't start with space");
+                for (int i = 0; i < name.Length; i++)
+                {
+                    if (!Char.IsLetterOrDigit(name[i]) && !Char.IsWhiteSpace(name[i]) && name[i] != ',')
+                    {
+                        return new ValidationResult(false, "must be a letter, digit, space or (,)");
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return new ValidationResult(false, "Error: " + ex.Message);
+            }
+            return ValidationResult.ValidResult;
+        }
+    }
+
     public class ValidPassword : ValidationRule
     {
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)

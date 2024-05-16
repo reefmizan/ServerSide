@@ -27,7 +27,7 @@
                     <GridViewColumn Header="ID"
                                     Width="142"
                                     DisplayMemberBinding="{Binding ID}" />
-                    <GridViewColumn Header="id"
+                    <GridViewColumn Header="firstname"
                                     Width="142"
                                     DisplayMemberBinding="{Binding FirstName}" />
                     <GridViewColumn Header="lastName"

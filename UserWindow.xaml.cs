@@ -69,5 +69,14 @@ namespace WpfClientReef
                 this.Close();
             }
         }
+
+        private void LogOut_Selected(object sender, RoutedEventArgs e)
+        {
+            user = null;
+            LoginWindow loginWindow = new LoginWindow();
+            this.Hide();
+            loginWindow.ShowDialog();
+            this.Close();
+        }
     }
 }

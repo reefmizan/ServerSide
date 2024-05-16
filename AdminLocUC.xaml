@@ -70,8 +70,8 @@
                              UpdateSourceTrigger="PropertyChanged"
                              ValidatesOnDataErrors="True">
                         <Binding.ValidationRules>
-                            <local:ValidName Min="2"
-                                             Max="9" />
+                            <local:ValidLocName Min="2"
+                                             Max="30" />
                         </Binding.ValidationRules>
                     </Binding>
                 </TextBox>

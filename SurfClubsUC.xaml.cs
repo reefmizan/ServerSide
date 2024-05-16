@@ -37,7 +37,7 @@ namespace WpfClientReef
             Button btn = sender as Button;
             foreach (SurfClubs sc in surfclubs)
             {
-                if(sc.Name == btn.Name)
+                if (sc.Name == btn.Name)
                 {
                     TextBlock tbHeader = new TextBlock();
                     tbHeader.Text = sc.Name;
@@ -53,29 +53,12 @@ namespace WpfClientReef
                     stackPanel.Margin = new Thickness(10);
                     spData.Children.Add(stackPanel);
                 }
-                
-            }
-
-            //stackPanel.MouseDown += StackPanel_MouseDown;
-
-            //private void StackPanel_MouseDown(object sender, MouseButtonEventArgs e)
-            //{
-            //    TypeSurf tp = (sender as StackPanel).Tag as TypeSurf;
-            //    //https://www.youtube.com/watch?v=TT6fHQR8SD8";
-            //    string url = tp.URLS.ToString();
-            //    url = url.Substring(url.LastIndexOf("?v=") + 3);
-            //    string html = "<html style='width: 100%; height: 100%; margin: 0; padding: 0;'><head>";
-            //    html += "<meta content='IE=Edge' http-equiv='X-UA-Compatible'/>";
-            //    html += "</head><body style='width: 100%; height: 100%; margin: 0; padding: 0;'>";
-            //    html += $"<iframe id='video' src='https://www.youtube.com/embed/{url}' style=\"padding: 0px; width: 100%; height: 100%; border: none; display: block;\" allowfullscreen></iframe>";
-            //    html += "</body></html>";
-            //    webBrowser = new WebBrowser();
-            //    webBrowser.NavigateToString(html);
-            //    videoME.Children.Add(webBrowser);
 
             }
+
 
         }
+    }
 }
     
 

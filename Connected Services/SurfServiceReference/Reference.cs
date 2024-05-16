@@ -162,7 +162,6 @@ namespace WpfClientReef.SurfServiceReference {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(WpfClientReef.SurfServiceReference.TypeSurf))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(WpfClientReef.SurfServiceReference.SurfClubs))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(WpfClientReef.SurfServiceReference.Locations))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(WpfClientReef.SurfServiceReference.Comments))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(WpfClientReef.SurfServiceReference.User))]
     public partial class BaseEntity : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -388,77 +387,6 @@ namespace WpfClientReef.SurfServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Comments", Namespace="http://schemas.datacontract.org/2004/07/Model")]
-    [System.SerializableAttribute()]
-    public partial class Comments : WpfClientReef.SurfServiceReference.BaseEntity {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime CdatetimeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ContentField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WpfClientReef.SurfServiceReference.Locations LocationField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WpfClientReef.SurfServiceReference.User UserField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime Cdatetime {
-            get {
-                return this.CdatetimeField;
-            }
-            set {
-                if ((this.CdatetimeField.Equals(value) != true)) {
-                    this.CdatetimeField = value;
-                    this.RaisePropertyChanged("Cdatetime");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Content {
-            get {
-                return this.ContentField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ContentField, value) != true)) {
-                    this.ContentField = value;
-                    this.RaisePropertyChanged("Content");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public WpfClientReef.SurfServiceReference.Locations Location {
-            get {
-                return this.LocationField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.LocationField, value) != true)) {
-                    this.LocationField = value;
-                    this.RaisePropertyChanged("Location");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public WpfClientReef.SurfServiceReference.User User {
-            get {
-                return this.UserField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UserField, value) != true)) {
-                    this.UserField = value;
-                    this.RaisePropertyChanged("User");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.CollectionDataContractAttribute(Name="TypeSurfList", Namespace="http://schemas.datacontract.org/2004/07/Model", ItemName="TypeSurf")]
     [System.SerializableAttribute()]
     public class TypeSurfList : System.Collections.Generic.List<WpfClientReef.SurfServiceReference.TypeSurf> {
@@ -476,13 +404,6 @@ namespace WpfClientReef.SurfServiceReference {
     [System.Runtime.Serialization.CollectionDataContractAttribute(Name="LocationsList", Namespace="http://schemas.datacontract.org/2004/07/Model", ItemName="Locations")]
     [System.SerializableAttribute()]
     public class LocationsList : System.Collections.Generic.List<WpfClientReef.SurfServiceReference.Locations> {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="CommentsList", Namespace="http://schemas.datacontract.org/2004/07/Model", ItemName="Comments")]
-    [System.SerializableAttribute()]
-    public class CommentsList : System.Collections.Generic.List<WpfClientReef.SurfServiceReference.Comments> {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -602,30 +523,6 @@ namespace WpfClientReef.SurfServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceSurf/DeleteLocations", ReplyAction="http://tempuri.org/IServiceSurf/DeleteLocationsResponse")]
         System.Threading.Tasks.Task<int> DeleteLocationsAsync(WpfClientReef.SurfServiceReference.Locations locations);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceSurf/GetAllComments", ReplyAction="http://tempuri.org/IServiceSurf/GetAllCommentsResponse")]
-        WpfClientReef.SurfServiceReference.CommentsList GetAllComments();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceSurf/GetAllComments", ReplyAction="http://tempuri.org/IServiceSurf/GetAllCommentsResponse")]
-        System.Threading.Tasks.Task<WpfClientReef.SurfServiceReference.CommentsList> GetAllCommentsAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceSurf/InsertComments", ReplyAction="http://tempuri.org/IServiceSurf/InsertCommentsResponse")]
-        int InsertComments(WpfClientReef.SurfServiceReference.Comments comments);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceSurf/InsertComments", ReplyAction="http://tempuri.org/IServiceSurf/InsertCommentsResponse")]
-        System.Threading.Tasks.Task<int> InsertCommentsAsync(WpfClientReef.SurfServiceReference.Comments comments);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceSurf/UpdateComments", ReplyAction="http://tempuri.org/IServiceSurf/UpdateCommentsResponse")]
-        int UpdateComments(WpfClientReef.SurfServiceReference.Comments comments);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceSurf/UpdateComments", ReplyAction="http://tempuri.org/IServiceSurf/UpdateCommentsResponse")]
-        System.Threading.Tasks.Task<int> UpdateCommentsAsync(WpfClientReef.SurfServiceReference.Comments comments);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceSurf/DeleteComments", ReplyAction="http://tempuri.org/IServiceSurf/DeleteCommentsResponse")]
-        int DeleteComments(WpfClientReef.SurfServiceReference.Comments comments);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceSurf/DeleteComments", ReplyAction="http://tempuri.org/IServiceSurf/DeleteCommentsResponse")]
-        System.Threading.Tasks.Task<int> DeleteCommentsAsync(WpfClientReef.SurfServiceReference.Comments comments);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -805,38 +702,6 @@ namespace WpfClientReef.SurfServiceReference {
         
         public System.Threading.Tasks.Task<int> DeleteLocationsAsync(WpfClientReef.SurfServiceReference.Locations locations) {
             return base.Channel.DeleteLocationsAsync(locations);
-        }
-        
-        public WpfClientReef.SurfServiceReference.CommentsList GetAllComments() {
-            return base.Channel.GetAllComments();
-        }
-        
-        public System.Threading.Tasks.Task<WpfClientReef.SurfServiceReference.CommentsList> GetAllCommentsAsync() {
-            return base.Channel.GetAllCommentsAsync();
-        }
-        
-        public int InsertComments(WpfClientReef.SurfServiceReference.Comments comments) {
-            return base.Channel.InsertComments(comments);
-        }
-        
-        public System.Threading.Tasks.Task<int> InsertCommentsAsync(WpfClientReef.SurfServiceReference.Comments comments) {
-            return base.Channel.InsertCommentsAsync(comments);
-        }
-        
-        public int UpdateComments(WpfClientReef.SurfServiceReference.Comments comments) {
-            return base.Channel.UpdateComments(comments);
-        }
-        
-        public System.Threading.Tasks.Task<int> UpdateCommentsAsync(WpfClientReef.SurfServiceReference.Comments comments) {
-            return base.Channel.UpdateCommentsAsync(comments);
-        }
-        
-        public int DeleteComments(WpfClientReef.SurfServiceReference.Comments comments) {
-            return base.Channel.DeleteComments(comments);
-        }
-        
-        public System.Threading.Tasks.Task<int> DeleteCommentsAsync(WpfClientReef.SurfServiceReference.Comments comments) {
-            return base.Channel.DeleteCommentsAsync(comments);
         }
     }
 }
